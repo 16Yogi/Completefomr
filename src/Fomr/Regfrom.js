@@ -18,7 +18,7 @@ export default function Regfrom() {
                     navigate('/');
                     console.log("reg done")
                 } else {
-                    navigate('/');
+                    // navigate('/');
                     console.log("reg failed")
                     // alert("Error");
                 }
