@@ -1,0 +1,1 @@
+npm i express,mysql,cors,nodemon,cookie-parser,jsonwebtoken,bcrypt,express-session,path
