@@ -83,6 +83,12 @@ const verifyUser = (req,res,next)=>{
 app.get('/',verifyUser,(req,res)=>{
     return res.json({Status:"SUccess",name:req.name});
 })
+
+app.get('/logout',(req,res)=>{
+    res.clearCookie('token');
+    return res.json({Status:"Success"});
+})
+
 app.listen(8000,()=>{
     console.log("Running...")
 })

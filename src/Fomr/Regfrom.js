@@ -16,10 +16,10 @@ export default function Regfrom() {
             .then(res => {
                 if(res.data.Status === "successs") {
                     navigate('/');
-                    console.log("Login done")
+                    console.log("reg done")
                 } else {
                     navigate('/');
-                    console.log("login failed")
+                    console.log("reg failed")
                     // alert("Error");
                 }
             })

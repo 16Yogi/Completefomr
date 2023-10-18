@@ -7,18 +7,17 @@ export default function Home() {
     const [message, setMessage] = useState('');
     const [name, setName] = useState('');
     const navigate = useNavigate();
-   
+
     axios.defaults.withCredentials = true;
 
     useEffect(() => {
-        axios.get('http://localhost:8000')
+        axios.get('http://localhost:8000/')
             .then(res => {
                 if (res.data.Status === "Success") {
                     setAuth(true);
                     setName(res.data.name);
                 } else {
                     setAuth(false);
-                    alert("Error");
                     setMessage(res.data.Error);
                 }
             })
@@ -26,14 +25,19 @@ export default function Home() {
     }, []);
 
     const handleLogout = () => {
-        // Your logout logic here
+        axios.get('http://localhost:8000/logout')
+            .then(res => {
+                window.location.reload(true);
+            })
+            .catch(err => console.log(err));
     };
 
     return (
-        <>
+        <>  
+        <h1>Home page</h1>
             {auth ? (
                 <div>
-                    <h3>Your are authorized --- {name}</h3>
+                    <h3>You are authorized --- {name}</h3>
                     <button onClick={handleLogout}>Logout</button>
                 </div>
             ) : (
