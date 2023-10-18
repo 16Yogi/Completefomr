@@ -10,15 +10,18 @@ export default function Login() {
   });
   
   const navigate = useNavigate();
+
+  axios.defaults.withCredentials = true;
+
   const handleSubmit = (event) => {
       event.preventDefault();
       axios.post('http://localhost:8000/login', values)
           .then(res => {
               if(res.data.Status === "successs") {
-                  // navigate('/');
+                  navigate('/');
                   console.log("Login done")
               } else {
-                  // navigate('/login');
+                  navigate('/');
                   console.log("login failed")
                   // alert("Error");
               }

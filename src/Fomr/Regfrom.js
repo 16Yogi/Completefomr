@@ -15,10 +15,10 @@ export default function Regfrom() {
         axios.post('http://localhost:8000/register', values)
             .then(res => {
                 if(res.data.Status === "successs") {
-                    navigate('/login');
+                    navigate('/');
                     console.log("Login done")
                 } else {
-                    navigate('/login');
+                    navigate('/');
                     console.log("login failed")
                     // alert("Error");
                 }
