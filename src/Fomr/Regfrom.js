@@ -10,15 +10,17 @@ export default function Regfrom() {
     });
     
     const navigate = useNavigate();
-
     const handleSubmit = (event) => {
         event.preventDefault();
         axios.post('http://localhost:8000/register', values)
             .then(res => {
                 if(res.data.Status === "successs") {
                     navigate('/login');
+                    console.log("Login done")
                 } else {
-                    alert("Error");
+                    navigate('/login');
+                    console.log("login failed")
+                    // alert("Error");
                 }
             })
             .then(err => console.log(err));           
